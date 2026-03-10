@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markakontor - For de dagene du virkelig trenger arbeidsro.</title>
+    <meta name="description" content="Et frested der du virkelig kan få ting gjort. Ikke er det på kontoret og ikke er det på hjemmekontoret.">
+    <link rel="icon" type="image/png" href="https://forwardby.io/fram/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'custom-bg': '#FFF9EF'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @font-face {
+          font-family: 'GT Alpina Sans';
+          font-style: normal;
+          font-weight: 300;
+          font-display: swap;
+          src: url('https://forwardby.io/fonts/alpina/GT-Alpina-Standard-Light.woff2') format('woff2');
+        }
+        @font-face {
+          font-family: 'GT Alpina Sans';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url('https://forwardby.io/fonts/alpina/GT-Alpina-Standard-Regular.woff2') format('woff2');
+        }
+        @font-face {
+          font-family: 'GT Alpina Sans';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url('https://forwardby.io/fonts/alpina/GT-Alpina-Standard-Bold.woff2') format('woff2');
+        }
+        @font-face {
+          font-family: 'GT Alpina Serif';
+          font-style: italic;
+          font-weight: 300;
+          font-display: swap;
+          src: url('https://forwardby.io/fonts/alpina/GT-Alpina-Fine-Standard-Light-Italic.woff2') format('woff2');
+        }
+        .font-alpina_sans { font-family: 'GT Alpina Sans', system-ui, sans-serif; }
+        .font-alpina_serif { font-family: 'GT Alpina Serif', Georgia, serif; }
+    </style>
+</head>
+<body style="background-color: #FFF9EF;">
+    <div class="isolate font-alpina_sans h-screen text-black" style="background-color: #FFF9EF;">
+        <div class="px-6 pt-6 lg:px-8">
+            <nav aria-label="Global" class="flex h-9 items-center justify-between">
+                <div class="flex lg:min-w-0 lg:flex-1">
+                    <span class="text-xl font-bold">Markakontor</span>
+                </div>
+            </nav>
+        </div>
+        <main>
+            <div class="px-6 lg:px-8 relative pb-32 pt-32">
+                <div class="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
+                    <h1 class="text-4xl sm:text-6xl tracking-tight text-center leading-normal">For de dagene du virkelig trenger <em class="font-alpina_serif">arbeidsro.</em></h1>
+                    <p class="mt-8 text-pretty text-lg text-center text-gray-500 sm:text-xl/8">
+                        Et fristed der du virkelig kan få ting gjort. Ikke er det på kontoret og ikke er det på hjemmekontoret. Noen ganger er det fint å være helt alene i konsentrasjon. Og du rekker en skitur i lunsjen.
+                    </p>
+                    <div class="mt-10 flex justify-center">
+                        <form class="flex gap-x-4">
+                            <input type="email" placeholder="Din e-post" class="min-w-0 flex-auto rounded-md border border-gray-300 bg-white px-3.5 py-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-black sm:text-sm">
+                            <button type="submit" class="flex-none rounded-md bg-black px-3.5 py-2.5 text-sm font-semibold text-white shadow hover:bg-gray-800">Sett meg på venteliste</button>
+                        </form>
+                    </div>
+                    <p class="mt-4 text-center text-sm text-gray-500">Sett deg på venteliste frem mot lansering.</p>
+                </div>
+            </div>
+        </main>
+        <footer class="border-t border-t-black" style="background-color: #FFF9EF;">
+            <div class="mx-auto max-w-7xl py-12 px-4 md:flex md:items-center md:justify-between">
+                <div class="mt-8 md:order-1 md:mt-0">
+                    <p class="text-center text-base">
+                        <div class="text-xl font-bold pb-6">MARKAKONTOR</div>
+                        <div class="pb-6 underline underline-offset-2 italic">
+                            <a href="mailto:christian@framventure.no">christian@framventure.no</a>
+                        </div>
+                        <div>Oslo, Norway</div>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
