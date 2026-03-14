@@ -6,39 +6,162 @@
     <title>Markakontor — Verdens kuleste kontor</title>
     <meta name="description" content="Off-grid, solcelledrevet kontor midt i Maridalen. Leies per dag eller uke — med badstue.">
     <link rel="icon" type="image/png" href="/assets/favicon.png">
-    <link rel="stylesheet" href="https://forwardby.io/fonts/gt-alpina/gt-alpina.css">
+    <link rel="stylesheet" href="https://forwardby.io/fonts/gt-alpina-sans.css">
+    <link rel="stylesheet" href="https://forwardby.io/fonts/gt-alpina-serif.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'alpina-sans': ['"GT Alpina Sans"', 'system-ui', 'sans-serif'],
+                        'alpina-serif': ['"GT Alpina Serif"', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        .font-alpina-sans { font-family: 'GT Alpina Sans', system-ui, sans-serif; }
-        .font-alpina-serif { font-family: 'GT Alpina Serif', Georgia, serif; }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
-<body class="bg-white text-black font-alpina-sans">
-    <div class="min-h-screen flex flex-col">
-        <header class="px-6 py-6 lg:px-8">
+<body class="bg-white text-black font-alpina-sans antialiased">
+
+    <!-- Hero Section -->
+    <section class="relative h-screen min-h-[600px] flex flex-col">
+        <div class="absolute inset-0">
+            <img src="/assets/covers/cover-1.jpg" alt="Markakontor i Maridalen" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
+        </div>
+
+        <header class="relative z-10 px-6 py-6 lg:px-10">
             <nav class="flex items-center">
                 <a href="/">
-                    <img src="/assets/logo.png" alt="Markakontor" class="h-8">
+                    <img src="/assets/logo.png" alt="Markakontor" class="h-8 brightness-0 invert">
                 </a>
             </nav>
         </header>
 
-        <main class="flex-1 flex items-center">
-            <div class="px-6 lg:px-8 w-full">
-                <div class="mx-auto max-w-3xl text-center">
-                    <h1 class="text-4xl sm:text-6xl tracking-tight leading-tight">Verdens kuleste <em class="font-alpina-serif italic">kontor</em></h1>
-                    <p class="mt-8 text-lg text-gray-500 sm:text-xl leading-relaxed">
-                        Off-grid, solcelledrevet, midt i Maridalen. Leies per dag eller uke — med badstue.
-                    </p>
+        <div class="relative z-10 flex-1 flex items-end pb-16 sm:pb-20 lg:pb-24 px-6 lg:px-10">
+            <div class="max-w-3xl">
+                <h1 class="text-4xl sm:text-5xl lg:text-7xl font-medium text-white tracking-tight leading-[1.1]">
+                    Verdens kuleste <em class="font-alpina-serif italic">kontor</em>
+                </h1>
+                <p class="mt-5 text-lg sm:text-xl text-white/80 max-w-xl leading-relaxed">
+                    Off-grid, solcelledrevet og plassert på et jorde i Maridalen
+                </p>
+                <a href="mailto:hei@markakontor.no"
+                   class="inline-block mt-8 px-8 py-3.5 bg-white text-black text-sm sm:text-base font-medium rounded-full hover:bg-white/90 transition-colors">
+                    Book en dag
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="px-6 lg:px-10 py-24 sm:py-32 lg:py-40">
+        <div class="mx-auto max-w-2xl text-center">
+            <h2 class="font-alpina-serif text-3xl sm:text-4xl lg:text-5xl italic leading-tight tracking-tight">
+                For de dagene du virkelig trenger arbeidsro
+            </h2>
+            <p class="mt-8 text-lg sm:text-xl text-gray-600 leading-relaxed">
+                Slipp åpent kontorlandskap og hjemmekontor. Jobb fra en shippingcontainer midt i naturen — med fyr i peisen, skiløyper rett utenfor og total stillhet. Bare 20 minutter fra Oslo sentrum.
+            </p>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="px-6 lg:px-10 pb-24 sm:pb-32 lg:pb-40">
+        <div class="mx-auto max-w-5xl">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-12 lg:gap-16">
+                <div class="flex gap-5">
+                    <span class="text-3xl flex-shrink-0 mt-0.5">🌞</span>
+                    <div>
+                        <h3 class="text-lg font-medium">Off-grid</h3>
+                        <p class="mt-2 text-gray-600 leading-relaxed">Solceller og Starlink. Ingen strøm- eller netttilkobling nødvendig.</p>
+                    </div>
+                </div>
+                <div class="flex gap-5">
+                    <span class="text-3xl flex-shrink-0 mt-0.5">🪵</span>
+                    <div>
+                        <h3 class="text-lg font-medium">Jøtulovn</h3>
+                        <p class="mt-2 text-gray-600 leading-relaxed">Tømmerdufter og peiskos. Alltid fyr i ovnen.</p>
+                    </div>
+                </div>
+                <div class="flex gap-5">
+                    <span class="text-3xl flex-shrink-0 mt-0.5">🧖</span>
+                    <div>
+                        <h3 class="text-lg font-medium">Badstue</h3>
+                        <p class="mt-2 text-gray-600 leading-relaxed">Inkludert ved dagsbooking. Perfekt avslutning på en produktiv dag.</p>
+                    </div>
+                </div>
+                <div class="flex gap-5">
+                    <span class="text-3xl flex-shrink-0 mt-0.5">🌲</span>
+                    <div>
+                        <h3 class="text-lg font-medium">Maridalen</h3>
+                        <p class="mt-2 text-gray-600 leading-relaxed">20 minutter fra Oslo. Midt i skogen med skiløyper og tursti rett utenfor.</p>
+                    </div>
                 </div>
             </div>
-        </main>
+        </div>
+    </section>
 
-        <footer class="border-t border-black px-6 py-8 lg:px-8">
-            <div class="mx-auto max-w-7xl text-center text-sm text-gray-500">
-                markakontor.no
+    <!-- Cover Image Break -->
+    <section class="px-6 lg:px-10 pb-24 sm:pb-32 lg:pb-40">
+        <div class="mx-auto max-w-6xl">
+            <img src="/assets/covers/cover-2.jpg" alt="Markakontor utenfra" class="w-full rounded-2xl object-cover max-h-[600px]">
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="px-6 lg:px-10 pb-24 sm:pb-32 lg:pb-40">
+        <div class="mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                <img src="/assets/photos/photo-1.jpg" alt="Markakontor interiør" class="w-full aspect-[4/3] object-cover rounded-xl">
+                <img src="/assets/photos/photo-2.jpg" alt="Markakontor interiør" class="w-full aspect-[4/3] object-cover rounded-xl">
+                <img src="/assets/photos/photo-3.jpg" alt="Markakontor interiør" class="w-full aspect-[4/3] object-cover rounded-xl">
+                <img src="/assets/photos/photo-4.jpg" alt="Markakontor eksteriør" class="w-full aspect-[4/3] object-cover rounded-xl">
+                <img src="/assets/photos/photo-5.jpg" alt="Markakontor omgivelser" class="w-full aspect-[4/3] object-cover rounded-xl">
+                <img src="/assets/photos/photo-6.jpg" alt="Markakontor badstue" class="w-full aspect-[4/3] object-cover rounded-xl">
             </div>
-        </footer>
-    </div>
+        </div>
+    </section>
+
+    <!-- Press Section -->
+    <section class="px-6 lg:px-10 pb-24 sm:pb-32 lg:pb-40">
+        <div class="mx-auto max-w-2xl text-center">
+            <p class="text-sm uppercase tracking-widest text-gray-400 mb-6">Som sett i</p>
+            <p class="font-alpina-serif italic text-xl sm:text-2xl text-gray-700 leading-relaxed">
+                Omtalt i <span class="text-black font-medium not-italic">DN D2</span> — «Stillhet, konsentrasjon og fyr i peisen en liten kollektivtur unna»
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-black text-white px-6 lg:px-10 py-24 sm:py-32 lg:py-40">
+        <div class="mx-auto max-w-2xl text-center">
+            <h2 class="font-alpina-serif text-3xl sm:text-4xl lg:text-5xl italic leading-tight tracking-tight">
+                Klar for en annerledes arbeidsdag?
+            </h2>
+            <p class="mt-6 text-lg text-white/70 leading-relaxed">
+                Book for en dag, to dager eller hele uken. Inkludert badstue og parkering.
+            </p>
+            <a href="mailto:hei@markakontor.no"
+               class="inline-block mt-10 px-10 py-4 bg-white text-black text-base font-medium rounded-full hover:bg-white/90 transition-colors">
+                Send oss en mail
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-200 px-6 lg:px-10 py-8">
+        <div class="mx-auto max-w-6xl flex flex-col sm:flex-row items-center justify-between gap-4">
+            <a href="/">
+                <img src="/assets/logo.png" alt="Markakontor" class="h-6">
+            </a>
+            <p class="text-sm text-gray-400">&copy; 2025 Markakontor</p>
+        </div>
+    </footer>
+
 </body>
 </html>
