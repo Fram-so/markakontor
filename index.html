@@ -3,153 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markakontor — Verdens kuleste kontor</title>
+    <title>Markakontor — Kontoret der skogen begynner</title>
     <meta name="description" content="Off-grid, solcelledrevet kontor midt i Maridalen. Leies per dag eller uke — med badstue.">
     <link rel="icon" type="image/png" href="/assets/favicon.png">
-    <link rel="stylesheet" href="https://forwardby.io/fonts/gt-alpina-sans.css">
-    <link rel="stylesheet" href="https://forwardby.io/fonts/gt-alpina-serif.css">
+    <link rel="stylesheet" href="https://forwardby.io/fonts/gt-alpina.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    colors: {
+                        cream: '#F7F4EF',
+                        ink: '#1A1A18',
+                        stone: '#B8B2A8',
+                        warm: '#E8E3DB',
+                    },
                     fontFamily: {
-                        'alpina-sans': ['"GT Alpina Sans"', 'system-ui', 'sans-serif'],
-                        'alpina-serif': ['"GT Alpina Serif"', 'Georgia', 'serif'],
-                    }
+                        serif: ['"GT Alpina"', '"GT Alpina Serif"', 'Georgia', 'serif'],
+                        sans: ['"GT Alpina Sans"', 'system-ui', 'sans-serif'],
+                    },
                 }
             }
         }
     </script>
     <style>
         html { scroll-behavior: smooth; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-up {
+            opacity: 0;
+            animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.15s; }
+        .delay-2 { animation-delay: 0.3s; }
+        .delay-3 { animation-delay: 0.5s; }
+        .delay-4 { animation-delay: 0.7s; }
+
+        /* Scroll-triggered reveals */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gallery hover */
+        .gallery-item img {
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Nav transition */
+        .nav-scrolled {
+            background: rgba(247, 244, 239, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(26, 26, 24, 0.06);
+        }
+
+        /* Thin elegant horizontal rule */
+        .rule {
+            width: 48px;
+            height: 1px;
+            background: currentColor;
+            opacity: 0.25;
+        }
     </style>
 </head>
-<body class="bg-white text-black font-alpina-sans antialiased">
+<body class="bg-cream text-ink font-sans antialiased">
 
-    <!-- Hero Section -->
-    <section class="relative h-screen min-h-[600px] flex flex-col">
+    <!-- Nav -->
+    <nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+        <div class="flex items-center justify-between px-6 lg:px-12 py-5 lg:py-6">
+            <a href="/" class="relative z-10">
+                <img id="nav-logo" src="/assets/logo.png" alt="Markakontor" class="h-7 lg:h-8 brightness-0 invert transition-all duration-500">
+            </a>
+            <a id="nav-link" href="#" class="relative z-10 text-white text-sm tracking-wide font-sans transition-colors duration-500 hover:opacity-60">
+                Book et kontor
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative h-screen min-h-[700px]">
         <div class="absolute inset-0">
             <img src="/assets/covers/cover-1.jpg" alt="Markakontor i Maridalen" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10"></div>
         </div>
 
-        <header class="relative z-10 px-6 py-6 lg:px-10">
-            <nav class="flex items-center">
-                <a href="/">
-                    <img src="/assets/logo.png" alt="Markakontor" class="h-8 brightness-0 invert">
-                </a>
-            </nav>
-        </header>
-
-        <div class="relative z-10 flex-1 flex items-end pb-16 sm:pb-20 lg:pb-24 px-6 lg:px-10">
-            <div class="max-w-3xl">
-                <h1 class="text-4xl sm:text-5xl lg:text-7xl font-medium text-white tracking-tight leading-[1.1]">
-                    Verdens kuleste <em class="font-alpina-serif italic">kontor</em>
-                </h1>
-                <p class="mt-5 text-lg sm:text-xl text-white/80 max-w-xl leading-relaxed">
-                    Off-grid, solcelledrevet og plassert på et jorde i Maridalen
-                </p>
-                <a href="mailto:hei@markakontor.no"
-                   class="inline-block mt-8 px-8 py-3.5 bg-white text-black text-sm sm:text-base font-medium rounded-full hover:bg-white/90 transition-colors">
-                    Book en dag
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Intro Section -->
-    <section class="px-6 lg:px-10 py-24 sm:py-32 lg:py-40">
-        <div class="mx-auto max-w-2xl text-center">
-            <h2 class="font-alpina-serif text-3xl sm:text-4xl lg:text-5xl italic leading-tight tracking-tight">
-                For de dagene du virkelig trenger arbeidsro
-            </h2>
-            <p class="mt-8 text-lg sm:text-xl text-gray-600 leading-relaxed">
-                Slipp åpent kontorlandskap og hjemmekontor. Jobb fra en shippingcontainer midt i naturen — med fyr i peisen, skiløyper rett utenfor og total stillhet. Bare 20 minutter fra Oslo sentrum.
+        <div class="relative z-10 h-full flex flex-col justify-end px-6 lg:px-12 pb-16 sm:pb-20 lg:pb-24">
+            <h1 class="font-serif text-[clamp(2.5rem,7vw,6rem)] leading-[1.05] tracking-tight text-white max-w-4xl fade-up">
+                Kontoret der<br>skogen begynner.
+            </h1>
+            <p class="mt-5 text-base sm:text-lg text-white/60 tracking-wide fade-up delay-2">
+                Maridalen, Oslo
             </p>
         </div>
     </section>
 
-    <!-- Features Grid -->
-    <section class="px-6 lg:px-10 pb-24 sm:pb-32 lg:pb-40">
+    <!-- Intro -->
+    <section class="px-6 lg:px-12 py-28 sm:py-36 lg:py-44">
+        <div class="mx-auto max-w-[680px] text-center reveal">
+            <p class="font-serif text-xl sm:text-2xl lg:text-[1.75rem] leading-[1.65] tracking-tight text-ink/85">
+                For de dagene du virkelig trenger arbeidsro. Et off-grid kontor i en shipping container, drevet av solenergi og Starlink — midt i Maridalen, fem minutter fra T-banen.
+            </p>
+        </div>
+    </section>
+
+    <!-- Three Columns -->
+    <section class="px-6 lg:px-12 pb-28 sm:pb-36 lg:pb-44">
         <div class="mx-auto max-w-5xl">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-12 lg:gap-16">
-                <div>
-                    <h3 class="text-lg font-medium">Off-grid</h3>
-                    <p class="mt-2 text-gray-600 leading-relaxed">Solceller og Starlink. Ingen strøm- eller netttilkobling nødvendig.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 lg:gap-16">
+                <div class="reveal">
+                    <p class="text-xs uppercase tracking-[0.2em] text-ink/40 mb-4">01</p>
+                    <h3 class="font-serif text-lg lg:text-xl tracking-tight mb-3">Off-grid</h3>
+                    <p class="text-sm leading-relaxed text-ink/50">
+                        Solceller og Starlink. Alt du trenger, ingenting du ikke trenger.
+                    </p>
                 </div>
-                <div>
-                    <h3 class="text-lg font-medium">Jøtulovn</h3>
-                    <p class="mt-2 text-gray-600 leading-relaxed">Tømmerdufter og peiskos. Alltid fyr i ovnen.</p>
+                <div class="reveal" style="transition-delay: 0.1s">
+                    <p class="text-xs uppercase tracking-[0.2em] text-ink/40 mb-4">02</p>
+                    <h3 class="font-serif text-lg lg:text-xl tracking-tight mb-3">Badstue</h3>
+                    <p class="text-sm leading-relaxed text-ink/50">
+                        Inkludert ved dagsbooking. Perfekt avslutning på en produktiv dag.
+                    </p>
                 </div>
-                <div>
-                    <h3 class="text-lg font-medium">Badstue</h3>
-                    <p class="mt-2 text-gray-600 leading-relaxed">Inkludert ved dagsbooking. Perfekt avslutning på en produktiv dag.</p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-medium">Maridalen</h3>
-                    <p class="mt-2 text-gray-600 leading-relaxed">20 minutter fra Oslo. Midt i skogen med skiløyper og tursti rett utenfor.</p>
+                <div class="reveal" style="transition-delay: 0.2s">
+                    <p class="text-xs uppercase tracking-[0.2em] text-ink/40 mb-4">03</p>
+                    <h3 class="font-serif text-lg lg:text-xl tracking-tight mb-3">Skogen utenfor</h3>
+                    <p class="text-sm leading-relaxed text-ink/50">
+                        Rett ved skiløyper og turstier. Maridalen på sitt beste.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Cover Image Break -->
-    <section class="px-6 lg:px-10 pb-24 sm:pb-32 lg:pb-40">
-        <div class="mx-auto max-w-6xl">
-            <img src="/assets/covers/cover-2.jpg" alt="Markakontor utenfra" class="w-full rounded-2xl object-cover max-h-[600px]">
-        </div>
+    <!-- Full-bleed Image -->
+    <section class="reveal">
+        <img src="/assets/covers/cover-2.jpg" alt="Markakontor" class="w-full h-[50vh] sm:h-[60vh] lg:h-[75vh] object-cover">
     </section>
 
-    <!-- Photo Gallery -->
-    <section class="px-6 lg:px-10 pb-24 sm:pb-32 lg:pb-40">
-        <div class="mx-auto max-w-6xl">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-                <img src="/assets/photos/photo-1.jpg" alt="Markakontor interiør" class="w-full aspect-[4/3] object-cover rounded-xl">
-                <img src="/assets/photos/photo-2.jpg" alt="Markakontor interiør" class="w-full aspect-[4/3] object-cover rounded-xl">
-                <img src="/assets/photos/photo-3.jpg" alt="Markakontor interiør" class="w-full aspect-[4/3] object-cover rounded-xl">
-                <img src="/assets/photos/photo-4.jpg" alt="Markakontor eksteriør" class="w-full aspect-[4/3] object-cover rounded-xl">
-                <img src="/assets/photos/photo-5.jpg" alt="Markakontor omgivelser" class="w-full aspect-[4/3] object-cover rounded-xl">
-                <img src="/assets/photos/photo-6.jpg" alt="Markakontor badstue" class="w-full aspect-[4/3] object-cover rounded-xl">
+    <!-- Gallery -->
+    <section class="px-4 lg:px-8 py-4 lg:py-8">
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
+            <div class="gallery-item overflow-hidden row-span-2 reveal">
+                <img src="/assets/photos/photo-1.jpg" alt="" class="w-full h-full object-cover">
+            </div>
+            <div class="gallery-item overflow-hidden reveal" style="transition-delay: 0.05s">
+                <img src="/assets/photos/photo-2.jpg" alt="" class="w-full aspect-[4/3] object-cover">
+            </div>
+            <div class="gallery-item overflow-hidden reveal" style="transition-delay: 0.1s">
+                <img src="/assets/photos/photo-3.jpg" alt="" class="w-full aspect-[4/3] object-cover">
+            </div>
+            <div class="gallery-item overflow-hidden reveal" style="transition-delay: 0.15s">
+                <img src="/assets/photos/photo-4.jpg" alt="" class="w-full aspect-[4/3] object-cover">
+            </div>
+            <div class="gallery-item overflow-hidden reveal" style="transition-delay: 0.2s">
+                <img src="/assets/photos/photo-5.jpg" alt="" class="w-full aspect-[4/3] object-cover">
+            </div>
+            <div class="gallery-item overflow-hidden col-span-2 lg:col-span-1 reveal" style="transition-delay: 0.25s">
+                <img src="/assets/photos/photo-6.jpg" alt="" class="w-full aspect-[4/3] lg:aspect-auto lg:h-full object-cover">
             </div>
         </div>
     </section>
 
-    <!-- Press Section -->
-    <section class="px-6 lg:px-10 pb-24 sm:pb-32 lg:pb-40">
-        <div class="mx-auto max-w-2xl text-center">
-            <p class="text-sm uppercase tracking-widest text-gray-400 mb-6">Som sett i</p>
-            <p class="font-alpina-serif italic text-xl sm:text-2xl text-gray-700 leading-relaxed">
-                Omtalt i <span class="text-black font-medium not-italic">DN D2</span> — «Stillhet, konsentrasjon og fyr i peisen en liten kollektivtur unna»
-            </p>
+    <!-- Press Quote -->
+    <section class="px-6 lg:px-12 py-28 sm:py-36 lg:py-44">
+        <div class="mx-auto max-w-3xl text-center reveal">
+            <div class="rule mx-auto mb-12"></div>
+            <blockquote class="font-serif italic text-2xl sm:text-3xl lg:text-4xl leading-[1.4] tracking-tight">
+                "Du far en sterk kontrast<br class="hidden sm:block"> til vanlige dager"
+            </blockquote>
+            <p class="mt-8 text-xs uppercase tracking-[0.25em] text-ink/35">Dagbladet D2</p>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="bg-black text-white px-6 lg:px-10 py-24 sm:py-32 lg:py-40">
-        <div class="mx-auto max-w-2xl text-center">
-            <h2 class="font-alpina-serif text-3xl sm:text-4xl lg:text-5xl italic leading-tight tracking-tight">
-                Klar for en annerledes arbeidsdag?
-            </h2>
-            <p class="mt-6 text-lg text-white/70 leading-relaxed">
-                Book for en dag, to dager eller hele uken. Inkludert badstue og parkering.
-            </p>
-            <a href="mailto:hei@markakontor.no"
-               class="inline-block mt-10 px-10 py-4 bg-white text-black text-base font-medium rounded-full hover:bg-white/90 transition-colors">
-                Send oss en mail
-            </a>
+    <!-- Final CTA -->
+    <section class="bg-ink text-white">
+        <div class="px-6 lg:px-12 py-28 sm:py-36 lg:py-44">
+            <div class="mx-auto max-w-2xl text-center reveal">
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl leading-[1.15] tracking-tight">
+                    En annerledes dag<br>pa kontoret.
+                </h2>
+                <p class="mt-8 text-base sm:text-lg text-white/45 leading-relaxed max-w-md mx-auto">
+                    Leies per dag eller uke. Inkludert badstue.
+                </p>
+                <a href="#" class="inline-block mt-12 text-sm tracking-wide text-white border-b border-white/30 pb-1 hover:border-white/80 transition-colors duration-300">
+                    Se ledige datoer &rarr;
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-gray-200 px-6 lg:px-10 py-8">
-        <div class="mx-auto max-w-6xl flex flex-col sm:flex-row items-center justify-between gap-4">
-            <a href="/">
-                <img src="/assets/logo.png" alt="Markakontor" class="h-6">
-            </a>
-            <p class="text-sm text-gray-400">&copy; 2025 Markakontor</p>
+    <footer class="bg-ink text-white/30 border-t border-white/5">
+        <div class="px-6 lg:px-12 py-8">
+            <div class="flex items-center justify-between">
+                <p class="text-xs tracking-wide">&copy; 2025 Markakontor</p>
+                <p class="text-xs tracking-wide">markakontor.no</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Nav scroll behavior
+        const nav = document.getElementById('nav');
+        const navLogo = document.getElementById('nav-logo');
+        const navLink = document.getElementById('nav-link');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const heroHeight = window.innerHeight * 0.85;
+
+            if (scrollY > heroHeight) {
+                nav.classList.add('nav-scrolled');
+                navLogo.classList.remove('brightness-0', 'invert');
+                navLink.classList.remove('text-white');
+                navLink.classList.add('text-ink');
+            } else {
+                nav.classList.remove('nav-scrolled');
+                navLogo.classList.add('brightness-0', 'invert');
+                navLink.classList.add('text-white');
+                navLink.classList.remove('text-ink');
+            }
+
+            lastScroll = scrollY;
+        }, { passive: true });
+    </script>
 
 </body>
 </html>
