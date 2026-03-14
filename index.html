@@ -7,6 +7,7 @@
     <meta name="description" content="Off-grid, solcelledrevet kontor midt i Maridalen. Leies per dag eller uke — med badstue.">
     <link rel="icon" type="image/png" href="/assets/favicon.png">
     <link rel="stylesheet" href="https://forwardby.io/fonts/gt-alpina.css">
+    <script src="https://fram.so/widget.js" data-token="fw_Cnnho8dD_ur5IYIyyNltHaD_6TEp8o2AdFUWIR_w4Gw"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -99,7 +100,7 @@
             <a href="/" class="relative z-10">
                 <img id="nav-logo" src="/assets/logo.png" alt="Markakontor" class="h-7 lg:h-8 brightness-0 invert transition-all duration-500">
             </a>
-            <a id="nav-link" href="#" class="relative z-10 text-white text-sm tracking-wide font-sans transition-colors duration-500 hover:opacity-60">
+            <a id="nav-link" href="#book" class="relative z-10 text-white text-sm tracking-wide font-sans transition-colors duration-500 hover:opacity-60">
                 Book et kontor
             </a>
         </div>
@@ -210,10 +211,29 @@
                 <p class="mt-8 text-base sm:text-lg text-white/45 leading-relaxed max-w-md mx-auto">
                     Leies per dag eller uke. Inkludert badstue.
                 </p>
-                <a href="#" class="inline-block mt-12 text-sm tracking-wide text-white border-b border-white/30 pb-1 hover:border-white/80 transition-colors duration-300">
+                <a href="#book" class="inline-block mt-12 text-sm tracking-wide text-white border-b border-white/30 pb-1 hover:border-white/80 transition-colors duration-300">
                     Se ledige datoer &rarr;
                 </a>
             </div>
+        </div>
+    </section>
+
+    <!-- Booking -->
+    <section id="book" class="px-6 lg:px-12 py-28 sm:py-36 lg:py-44 bg-warm">
+        <div class="mx-auto max-w-3xl reveal">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl leading-[1.15] tracking-tight">Book Markakontor</h2>
+                <p class="mt-6 text-base sm:text-lg text-ink/50 leading-relaxed max-w-md mx-auto">
+                    Velg en ledig dato og book kontoret ditt i skogen.
+                </p>
+            </div>
+            <div id="booking-widget"></div>
+            <script>
+                Forward.workflow({
+                    target: '#booking-widget',
+                    workflow: 'book-markakontor'
+                })
+            </script>
         </div>
     </section>
 
