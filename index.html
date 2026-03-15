@@ -229,10 +229,12 @@
             </div>
             <div id="booking-widget"></div>
             <script>
-                Forward.workflow({
-                    target: '#booking-widget',
-                    workflow: 'book-markakontor'
-                })
+                if (new URLSearchParams(window.location.search).get('mk') === 'true') {
+                    Forward.workflow({
+                        target: '#booking-widget',
+                        workflow: 'book-markakontor'
+                    })
+                }
             </script>
         </div>
     </section>
@@ -288,7 +290,9 @@
 
     <script src="https://fram.so/widget.js" data-token="fw_yZwt_OiNIqx2dKP1qUvu2jf4aJmSGVM_OlbZFBaYw4Y"></script>
     <script>
-      Forward.chat({ position: 'bottom-right' })
+      if (new URLSearchParams(window.location.search).get('mk') === 'true') {
+        Forward.chat({ position: 'bottom-right' })
+      }
     </script>
 
 </body>
